@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'BuildingCompany.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'building_db',
+        'NAME': 'baithouse_db',
         'USER': 'hello',
         'PASSWORD': '1',
         'HOST': 'localhost',
@@ -135,6 +135,7 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 AUTH_USER_MODEL = 'account.User'
 

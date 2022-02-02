@@ -1,6 +1,7 @@
+from django.contrib.auth import get_user_model
 from django.db import models
-
 from account.models import User
+#User = get_user_model()
 
 
 class Category(models.Model):
@@ -26,6 +27,10 @@ class Build(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('gallery', kwargs={'pk': self.pk})
 
 
 class Image(models.Model):
