@@ -55,3 +55,9 @@ def create_house(request):
 
 def update_build(request, pk):
     pass
+
+
+def about_us(request):
+    return render(request, 'about-us.html')
+
+
