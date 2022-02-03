@@ -64,18 +64,7 @@
               <li><a href="{% url 'full' %}">Частные дома</a></li>
             </ul>
           </li>
-          <li><a style="font-size: 16px;" class="drop" href="#">Create</a>
-            <ul>
-              <li><a href="#">Level 2</a></li>
-              <li><a class="drop" href="#">Level 2 + Drop</a>
-                <ul>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Level 2</a></li>
-            </ul>
+          <li><a style="font-size: 16px;" class="drop" href="{% url 'create-house' %}">Create</a>
           </li>
           <li><a style="font-size: 16px;" href="{% url 'basic-grid' %}">О нас</a></li>
           <ul>
