@@ -7,4 +7,5 @@ urlpatterns = [
     path('gallery', gallery, name='gallery'),
     path('full-width', full_width, name='full'),
     path('basic-grid', basic_grid, name='basic-grid'),
+    path('about-us/', about_us, name='about-us')
 ]

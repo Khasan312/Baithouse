@@ -2,18 +2,12 @@
 {% load static %}
 <html>
 <head>
-<title>Limberly | Pages | Basic Grid</title>
+<title>BaitHouse</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
 <style type="text/css">
-/* DEMO ONLY */
-.container .demo{text-align:center;}
-.container .demo div{padding:8px 0;}
-.container .demo div:nth-child(odd){color:#FFFFFF; background:#CCCCCC;}
-.container .demo div:nth-child(even){color:#FFFFFF; background:#979797;}
-@media screen and (max-width:900px){.container .demo div{margin-bottom:0;}}
-/* DEMO ONLY */
+
 </style>
 </head>
 <body id="top">
@@ -21,16 +15,16 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- Top Background Image Wrapper -->
-<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');"> 
+<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
   <!-- ################################################################################################ -->
   <div class="wrapper row0">
-    <div id="topbar" class="hoc clear"> 
+    <div id="topbar" class="hoc clear">
       <!-- ################################################################################################ -->
       <div class="fl_left">
         <ul class="nospace">
           <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#">My Profile</a></li>
           <li><a href="#">Login</a></li>
           <li><a href="#">Register</a></li>
         </ul>
@@ -48,24 +42,30 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <div class="wrapper row1">
-    <header id="header" class="hoc clear"> 
+    <header id="header" class="hoc clear">
       <!-- ################################################################################################ -->
-      <div id="logo" class="fl_left">
-        <h1><a href="../index.html">Limberly</a></h1>
-      </div>
+      <div id="logo" class="fl_left" style="display:flex; justify-content:space-between;"  >
+        <div style="margin:0 20px;">
+        <h1><b><a bolt="" style="font-size:35px;" href="{% url 'home' %}">BaitHouse</a></b></h1>
+</div>
+
+        <input name="q" class="form-control  class-right"   type="search" placeholder="Burada ara" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+
+         </div>
+
+
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
           <li class="active"><a class="drop" href="#">Pages</a>
             <ul>
               <li><a href="gallery.html">Gallery</a></li>
               <li><a href="full-width.html">Full Width</a></li>
-              <li><a href="sidebar-left.html">Sidebar Left</a></li>
-              <li><a href="sidebar-right.html">Sidebar Right</a></li>
               <li class="active"><a href="basic-grid.html">Basic Grid</a></li>
             </ul>
           </li>
-          <li><a class="drop" href="#">Dropdown</a>
+          <li><a class="drop" href="#">Create</a>
             <ul>
               <li><a href="#">Level 2</a></li>
               <li><a class="drop" href="#">Level 2 + Drop</a>
@@ -78,8 +78,8 @@
               <li><a href="#">Level 2</a></li>
             </ul>
           </li>
-          <li><a href="#">Link Text</a></li>
-          <li><a href="#">Link Text</a></li>
+          <li><a href="#">О нас</a></li>
+
         </ul>
       </nav>
       <!-- ################################################################################################ -->
@@ -89,13 +89,107 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <div class="wrapper row2">
-    <div id="breadcrumb" class="hoc clear"> 
+    <div id="breadcrumb" class="hoc clear">
       <!-- ################################################################################################ -->
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Lorem</a></li>
-        <li><a href="#">Ipsum</a></li>
-        <li><a href="#">Dolor</a></li>
+
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+   width="600px" height="100px" viewBox="0 0 600 100">
+<style type="text/css">
+
+<![CDATA[
+
+  text {
+    filter: url(#filter);
+    fill: white;
+      font-family: 'Share Tech Mono', sans-serif;
+      font-size: 100px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+        }
+]]>
+</style>
+  <defs>
+
+    <filter id="filter">
+        <feFlood flood-color="black" result="black" />
+        <feFlood flood-color="red" result="flood1" />
+        <feFlood flood-color="limegreen" result="flood2" />
+      <feOffset in="SourceGraphic" dx="3" dy="0" result="off1a"/>
+      <feOffset in="SourceGraphic" dx="2" dy="0" result="off1b"/>
+      <feOffset in="SourceGraphic" dx="-3" dy="0" result="off2a"/>
+      <feOffset in="SourceGraphic" dx="-2" dy="0" result="off2b"/>
+        <feComposite in="flood1" in2="off1a" operator="in"  result="comp1" />
+        <feComposite in="flood2" in2="off2a" operator="in" result="comp2" />
+
+        <feMerge x="0" width="100%" result="merge1">
+        <feMergeNode in = "black" />
+        <feMergeNode in = "comp1" />
+        <feMergeNode in = "off1b" />
+
+        <animate
+          attributeName="y"
+            id = "y"
+            dur ="4s"
+
+            values = '104px; 104px; 30px; 105px; 30px; 2px; 2px; 50px; 40px; 105px; 105px; 20px; 6ßpx; 40px; 104px; 40px; 70px; 10px; 30px; 104px; 102px'
+
+            keyTimes = '0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'
+
+            repeatCount = "indefinite" />
+
+        <animate attributeName="height"
+            id = "h"
+            dur ="4s"
+
+            values = '10px; 0px; 10px; 30px; 50px; 0px; 10px; 0px; 0px; 0px; 10px; 50px; 40px; 0px; 0px; 0px; 40px; 30px; 10px; 0px; 50px'
+
+            keyTimes = '0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'
+
+            repeatCount = "indefinite" />
+        </feMerge>
+
+
+      <feMerge x="0" width="100%" y="60px" height="65px" result="merge2">
+        <feMergeNode in = "black" />
+        <feMergeNode in = "comp2" />
+        <feMergeNode in = "off2b" />
+
+        <animate attributeName="y"
+            id = "y"
+            dur ="4s"
+            values = '103px; 104px; 69px; 53px; 42px; 104px; 78px; 89px; 96px; 100px; 67px; 50px; 96px; 66px; 88px; 42px; 13px; 100px; 100px; 104px;'
+
+            keyTimes = '0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513; 0.548; 0.577; 0.613; 1'
+
+            repeatCount = "indefinite" />
+
+        <animate attributeName="height"
+            id = "h"
+            dur = "4s"
+
+          values = '0px; 0px; 0px; 16px; 16px; 12px; 12px; 0px; 0px; 5px; 10px; 22px; 33px; 11px; 0px; 0px; 10px'
+
+            keyTimes = '0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513;  1'
+
+            repeatCount = "indefinite" />
+        </feMerge>
+
+      <feMerge>
+        <feMergeNode in="SourceGraphic" />
+
+        <feMergeNode in="merge1" />
+      <feMergeNode in="merge2" />
+
+        </feMerge>
+      </filter>
+
+  </defs>
+
+<g>
+  <center><text x="0" y="100">BaitHouse</text></center>
+</g>
+</svg>
       </ul>
       <!-- ################################################################################################ -->
     </div>
@@ -107,49 +201,30 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
-  <main class="hoc container clear"> 
+  <main class="hoc container clear">
+    <p style="font-size: 30px; word-spacing: 11px;line-height: 1.1;"><b>Компания «BaitHouse»</b> – лидер строительного рынка. Мы строим жилые многоэтажные дома, коммерческие объекты, объекты культурного и социального назначения, мосты, дороги, тоннели, делаем реконструкцию зданий и сооружений.</p>
+
+    <img  style="width: 120px; height: auto;" src="{% static 'images/doba.jpg' %}">
+    <h1><p style="font-size: 20px;"><b>Даниель Мухамеджанов</b></h1> <p style="font-size: 20px;"><br style="font-size: 20px;">Основатель и владелец</br> <br>Образование: высшее юридическое (Кыргызский государственный национальный университет). Выпускник Московского финансово-промышленного университета «Синергия» по программе "Executive Master of Business Administration (ЕМВА). Выпускник Школы владельцев бизнеса «Высоцкий консалтинг». <br></p></p>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@_davletov_dancho_/video/6882224754305109250" data-video-id="6882224754305109250" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@_davletov_dancho_" href="https://www.tiktok.com/@_davletov_dancho_">@_davletov_dancho_</a> <p></p> <a target="_blank" title="♬ Milly Rock - RAKHIM" href="https://www.tiktok.com/music/Milly-Rock-6874943140915103745">♬ Milly Rock - RAKHIM</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <img  style="width: 120px; height: auto;" src="{% static 'images/has.jpg' %}">
+    <h1><p style="font-size: 20px;"><b>Хасан Баудунов</b></h1> <p style="font-size: 20px;"><br>Основатель и владелец</br> <br><p style="font-size: 20px;">Бизнес-тренер, профессор бизнеса и маркетинга, доктор экономических наук, доктор психологических наук, основатель и президент Международного центра развития человека «САМО», автор серии книг-бестселлеров о самосовершенствовании и достижении финансового благополучия.</br></p></p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/AY3iCCr_p1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <!-- main body -->
     <!-- ################################################################################################ -->
-    <div class="content"> 
+    <div class="content">
       <!-- ################################################################################################ -->
-      <h2>Half</h2>
       <!-- ################################################################################################ -->
-      <div class="group btmspace-50 demo">
-        <div class="one_half first">1/2</div>
-        <div class="one_half">1/2</div>
-      </div>
+
       <!-- ################################################################################################ -->
-      <h2>Quarter</h2>
       <!-- ################################################################################################ -->
-      <div class="group btmspace-50 demo">
-        <div class="one_quarter first">1/4</div>
-        <div class="one_quarter">1/4</div>
-        <div class="one_quarter">1/4</div>
-        <div class="one_quarter">1/4</div>
-      </div>
-      <div class="group btmspace-50 demo">
-        <div class="one_quarter first">1/4</div>
-        <div class="one_quarter">1/4</div>
-        <div class="two_quarter">2/4 or 1/2</div>
-      </div>
-      <div class="group btmspace-50 demo">
-        <div class="one_quarter first">1/4</div>
-        <div class="three_quarter">3/4</div>
-      </div>
+
       <!-- ################################################################################################ -->
-      <h2>Third</h2>
       <!-- ################################################################################################ -->
-      <div class="group btmspace-50 demo">
-        <div class="one_third first">1/3</div>
-        <div class="one_third">1/3</div>
-        <div class="one_third">1/3</div>
-      </div>
-      <div class="group demo">
-        <div class="one_third first">1/3</div>
-        <div class="two_third">2/3</div>
-      </div>
+
       <!-- ################################################################################################ -->
-    </div>
+
     <!-- ################################################################################################ -->
     <!-- / main body -->
     <div class="clear"></div>
@@ -159,7 +234,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row4">
-  <footer id="footer" class="hoc clear"> 
+  <footer id="footer" class="hoc clear">
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
       <h6 class="title">Tortor vestibulum</h6>
@@ -216,7 +291,7 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
+  <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
     <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>

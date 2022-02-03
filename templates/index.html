@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
 
+
 <body id="top">
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -21,23 +22,18 @@
       <!-- ################################################################################################ -->
       <div class="fl_left">
         <ul class="nospace">
-          <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
           {% if not request.user.is_authenticated %}
           <li><a href="{% url 'register' %}">Register</a></li>
-          <a href="{% url 'login' %}"><i class="fas fa-user-circle"></i></a>
           {% else %}
-          <a href="{% url 'logout' %}"><i style="color: black;" class="fas fa-user-circle"></i></a>
           {% endif %}
 
         </ul>
       </div>
       <div class="fl_right">
         <ul class="nospace">
-          <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-          <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+          <li><i class="fa fa-phone"></i> +996(702)000 333</li>
+          <li><i class="fa fa-envelope-o"></i>baithouse@mail.ru</li>
         </ul>
       </div>
       <!-- ################################################################################################ -->
@@ -46,12 +42,19 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-  <div class="wrapper row1">
+  <div class="wrapper row1 ">
     <header id="header" class="hoc clear">
       <!-- ################################################################################################ -->
-      <div id="logo" class="fl_left">
-        <h1><b><a bolt="" style="font-size:35px;" href="{% url 'home' %}">BaitHouse</a></h1></b>
-      </div>
+      <div id="logo" class="fl_left" style="display:flex; justify-content:space-between;"  >
+        <div style="margin:0 20px;">
+        <h1><b><a bolt="" style="font-size:35px;" href="{% url 'home' %}">BaitHouse</a></b></h1>
+</div>
+
+        <input name="q" class="form-control  class-right"   type="search" placeholder="Burada ara" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+
+         </div>
+
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li class="active"><a style="font-size: 16px;" href="index.html">Home</a></li>
@@ -59,7 +62,6 @@
             <ul>
               <li><a href="{% url 'gallery' %}">Квартиры</a></li>
               <li><a href="{% url 'full' %}">Частные дома</a></li>
-              <li><a href="{% url 'basic-grid' %}">что то</a></li>
             </ul>
           </li>
           <li><a style="font-size: 16px;" class="drop" href="#">Create</a>
@@ -78,15 +80,18 @@
           <li><a style="font-size: 16px;" href="{% url 'basic-grid' %}">О нас</a></li>
           <ul>
           </ul>
+
           <li><a href="#"></a></li>
         </ul>
       </nav>
+
       <!-- ################################################################################################ -->
     </header>
   </div>
+<article class="introtxt"></article>
   <!-- ###################################### ########################################################## -->
   <!-- ################################################################################################ -->
-  <!-- ################################################################################################ -->
+ <!-- ################################################################################################ -->
   <div id="pageintro" class="hoc clear">
 
 
@@ -94,14 +99,14 @@
     <article class="introtxt">
       <p>Дом для счастливых семей</p>
       <h2 class="heading">ЭЛ КЛАССИК ПЛЮС</h2>
-      <footer><a class="btn" href="#">Подробнее</a></footer>
+      <footer><a class="btn" href="{% url 'about-us' %}">Подробнее</a></footer>
     </article>
 
     <!-- ################################################################################################ -->
     <div class="clear"></div>
   </div>
   <!-- ################################################################################################ -->
-</img>
+
 <!-- End Top Background Image Wrapper -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -155,36 +160,40 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper">
-  <div class="split clear" style="background-image" src="{% static 'images/building.png' %}">
+  <div class="split clear" style="background-image" src="{% static 'images/arab.jpg' %}">
+    <p>                                       </p>
+
+        <img  style="width: 620px; height: 200;" src="{% static 'images/arab.jpg' %}">
+
     <section class="box">
       <!-- ################################################################################################ -->
       <div class="btmspace-50">
-        <h3 class="font-x2 nospace">наши преимущества </h3>
-        <p class="nospace">ДОВЕРИТЬСЯ НАМ ЛЕГКО<a href="#"></a>.</p>
+        <b><h3 style="font-size: 30px;" class="font-x2 nospace">наши преимущества </h3></b>
+        <b><p class="nospace">ДОВЕРИТЬСЯ НАМ ЛЕГКО<a href="#"></a></p></b>
       </div>
       <ul class="nospace group services">
         <li class="one_half first">
           <article><a href="#"><i class="fa fa-plug"></i></a>
-            <h6 class="heading">исключение перерасхода</h6>
+            <h6 class="heading"><b>исключение перерасхода</b></h6>
             <p>Мы рассчитываем оптимальный объем материалов, исключая перерасход по коэффициенту запаса. Так вы
 сэкономите до 20% бюджета.</p>
           </article>
         </li>
         <li class="one_half">
           <article><a href="#"><i class="fa fa-puzzle-piece"></i></a>
-            <h6 class="heading">долговечность каркаса здания</h6>
+            <h6 class="heading"><b>долговечность каркаса здания</b></h6>
             <p>Rhoncus etiam vel semper elit sed porta diam maecenas eget ligula a diam imperdiet posuere in in libero etiam tristique&hellip;</p>
           </article>
         </li>
         <li class="one_half first">
           <article><a href="#"><i class="fa fa-random"></i></a>
-            <h6 class="heading">рассрочка оплат на период строительства </h6>
+            <h6 class="heading"><b>рассрочка оплат на период строительства</b></h6>
             <p>Предоставляем вам возможность проведения оплат поэтапно, путем деления на весь период строительных работ.&hellip;</p>
           </article>
         </li>
         <li class="one_half">
           <article><a href="#"><i class="fa fa-firefox"></i></a>
-            <h6 class="heading">Энергоэффективные стены и кровля</h6>
+            <h6 class="heading"><b>Энергоэффективные стены и кровля</b></h6>
             <p>Премиум материалы в обшивке снижают теплопотери и сократят ваши расходы на отопление минимум на 30%.&hellip;</p>
           </article>
         </li>
@@ -199,8 +208,8 @@
 <div class="wrapper coloured">
   <article class="hoc container clear center">
     <!-- ################################################################################################ -->
-    <h6 class="heading capitalise">Tristique mi faucibus interdum auctor ante donec posuere</h6>
-    <p class="nospace"><a class="btn inverse" href="#">на вверх</a></p>
+    <h6 class="heading capitalise">Эль Классик Плюс </h6>
+    <p class="nospace"><a class="btn inverse" href="#">Подробнее</a></p>
     <!-- ################################################################################################ -->
   </article>
 </div>
@@ -210,12 +219,12 @@
 <div class="wrapper bgded overlay" style="background-image: {% static 'images/new.jpg' %};">
   <div class="hoc container center clear">
     <!-- ################################################################################################ -->
-    <blockquote class="nospace btmspace-50 font-x1">Augue vitae faucibus nullam ut aliquet sapienproin euismod enim vel lacinia ultrices risus mi feugiat diam vitae ullamcorper tortor purus at lectus duis arcu sapien sollicitudin a dolor non porttitor eleifend sem vivamus hendrerit dolor in viverra auctor tellus.</blockquote>
+    <blockquote class="nospace btmspace-50 font-x1">По итогам 2019 года признаны Лучшей компанией по строительству многоэтажных домов премиум-класса в Кыргызстане</blockquote>
     <img  style="width: 80px; height: auto;" src="{% static 'images/dani.jpg' %}">
     <img  style="width: 80px; height: auto;" src="{% static 'images/has.jpg' %}">
     <figure><img class="btmspace-15" src="images/demo/60x60.png" alt="">
       <figcaption><strong style="font-size 30px;">Наши великие основатели</strong><br>
-        <em><b>BAITHOUSE</em></b></figcaption>
+        <em><b>BAITHOUSE </b></em></figcaption>
     </figure>
     <!-- ################################################################################################ -->
   </div>
@@ -227,26 +236,25 @@
   <section class="hoc container clear">
     <!-- ################################################################################################ -->
     <div class="center btmspace-50">
-      <h3 class="font-x2 nospace">Будущие проекты</h3>
-      <p class="nospace">Eros etiam vel felis nulla donec eleifend facilisis faucibus aliquam dictum enim ac <a href="#">vehicula tristique</a>.</p>
+      <h3 style="font-size: 35px;" class="font-x2 nospace">Будущие проекты</h3>
     </div>
     <div class="group">
-      <article class="one_third first"><a href="#"><img class="btmspace-30" src="images/demo/320x210.png" alt=""></a>
-        <time class="block font-xs" datetime="2045-04-06">6<sup>th</sup> April 2045</time>
-        <h4 class="nospace font-x1">Vitae tortor placerat</h4>
-        <p>Vel consectetur interdum orci aliquam vel accumsan turpis hendrerit dolor tincidunt tincidunt vestibulum purus&hellip;</p>
+      <article class="one_third first"><a href="#"><img class="btmspace-30" src="{% static 'images/avan.jpg' %}" alt=""></a>
+        <time class="block font-xs" datetime="2045-04-06">6<sup>th</sup> Апрель 2045</time>
+        <h4 class="nospace font-x1">BaitHouse City</h4>
+        <p>BaitHouse CITY – проект c оригинальной и выразительной архитектурой. Комплекс представляет собой ансамбль из 10 домов единого архитектурного стиля этажностью от 10 до 14 этажей&hellip;</p>
         <p class="nospace"><a href="#">Read More &raquo;</a></p>
       </article>
-      <article class="one_third"><a href="#"><img class="btmspace-30" src="images/demo/320x210.png" alt=""></a>
-        <time class="block font-xs" datetime="2045-04-05">5<sup>th</sup> April 2045</time>
-        <h4 class="nospace font-x1">Dictum ut felis</h4>
-        <p>Justo lacinia nibh eget porttitor erat metus in mauris nulla volutpat lectus risus sit amet vestibulum dui suscipit&hellip;</p>
+      <article class="one_third"><a href="#"><img class="btmspace-30" src="{% static 'images/elitka.jpg' %}" alt=""></a>
+        <time class="block font-xs" datetime="2045-04-05">5<sup>th</sup> Апрель 2045</time>
+        <h4 class="nospace font-x1">Испанский Дом</h4>
+        <p> «Испанский дом» — великолепный дом премиум класса, созданный по эксклюзивному проекту. Утонченная испанская архитектура, отличное расположение в престижном районе Бишкека – 7 микрорайоне&hellip;</p>
         <p class="nospace"><a href="#">Read More &raquo;</a></p>
       </article>
-      <article class="one_third"><a href="#"><img class="btmspace-30" src="images/demo/320x210.png" alt=""></a>
+      <article class="one_third"><a href="#"><img class="btmspace-30" src="{% static 'images/komp.jpg' %}" alt=""></a>
         <time class="block font-xs" datetime="2045-04-04">4<sup>th</sup> April 2045</time>
-        <h4 class="nospace font-x1">Consectetur vel neque</h4>
-        <p>Eget proin in purus bibendum lacinia metus ornare rutrum eros lorem ipsum dolor sit amet consectetur adipiscing elit&hellip;</p>
+        <h4 class="nospace font-x1">Французский Квартал</h4>
+        <p>«Французский квартал» расположен в самом сердце южной части нашего города. Этот экологически чистый и тихий район создает прекрасную среду для проживания, рядом с которым расположен парк «Асанбай», гостиница «Jannat» и Гипермаркет «Глобус».&hellip;</p>
         <p class="nospace"><a href="#">Read More &raquo;</a></p>
       </article>
     </div>
@@ -260,49 +268,48 @@
   <footer id="footer" class="hoc clear">
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
-      <h6 class="title">Tortor vestibulum</h6>
-      <p>Nulla nec metus sed arcu suscipit dignissimmaecenas lobortis quam vel leo placerat lacinia quisque ac dolor fermentum ultrices.</p>
-      <p>Lacus donec aliquam sodales orci eget convallis mauris tempor id leo massa euismod id nisl eu molestie erat.</p>
+      <h6 class="title">О нас</h6>
+      <p>Компания «BaitHouse» – лидер строительного рынка. Мы строим жилые многоэтажные дома, коммерческие объекты, объекты культурного и социального назначения, мосты, дороги, тоннели, делаем реконструкцию зданий и сооружений.</p>
     </div>
     <div class="one_quarter">
       <h6 class="title">наши контакты</h6>
       <ul class="nospace linklist contact">
         <li><i class="fa fa-map-marker"></i>
           <address>
-          Street Name &amp; Number, Town, Postcode/Zip
+          Улица Табышалиева &amp; 29, Первый этаж
           </address>
         </li>
-        <li><i class="fa fa-phone"></i> +00 (123) 456 7890<br>
-          +00 (123) 456 7890</li>
+        <li><i class="fa fa-phone"></i> +996(504)444 444<br>
+          +996(702)000 333</li>
         <li><i class="fa fa-fax"></i> +00 (123) 456 7890</li>
-        <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+        <li><i class="fa fa-envelope-o"></i>baithouse@mail.ru</li>
       </ul>
     </div>
     <div class="one_quarter">
-      <h6 class="title">Pulvinar et fusce</h6>
+      <h6 class="title">Обьекты</h6>
       <ul class="nospace linklist">
-        <li><a href="#">Felis elit ut mollis urna</a></li>
-        <li><a href="#">Ipsum mauris tincidunt at</a></li>
-        <li><a href="#">Nibh ut dignissim elementum</a></li>
-        <li><a href="#">Leo integer suscipit sagittis</a></li>
-        <li><a href="#">Blandit in hac habitasse</a></li>
+        <li><a href="#">Французский квартал</a></li>
+        <li><a href="#">Испанский квартал</a></li>
+        <li><a href="#">BaitHouse City</a></li>
+        <li><a href="#">Александрия</a></li>
+        <li><a href="#">Эль Классик Плюс</a></li>
       </ul>
     </div>
     <div class="one_quarter">
-      <h6 class="title">Dictumst integer</h6>
+      <h6 class="title">В процессе строительства </h6>
       <ul class="nospace linklist">
         <li>
           <article>
-            <h6 class="nospace font-x1"><a href="#">Vel metus pharetra</a></h6>
-            <time class="font-xs block btmspace-10" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
-            <p class="nospace">Maximus ipsum vestibulum diam tortor suscipit vitae&hellip;</p>
+            <h6 class="nospace font-x1"><a href="#">BaitHouse City</a></h6>
+            <time class="font-xs block btmspace-10" datetime="2045-04-06">Пятница, 6<sup>th</sup> Апрель 2045</time>
+            <p class="nospace">BaitHouse CITY – проект c оригинальной и выразительной архитектурой. &hellip;</p>
           </article>
         </li>
         <li>
           <article>
-            <h6 class="nospace font-x1"><a href="#">Fermentum tellus</a></h6>
-            <time class="font-xs block btmspace-10" datetime="2045-04-05">Thursday, 5<sup>th</sup> April 2045</time>
-            <p class="nospace">Posuere cursus magnaproin id neque nunc non bibendum&hellip;</p>
+            <h6 class="nospace font-x1"><a href="#">Испанский Дом</a></h6>
+            <time class="font-xs block btmspace-10" datetime="2045-04-05">Вторник, 5<sup>th</sup> Апрель 2045</time>
+            <p class="nospace">«Испанский дом» — великолепный дом премиум класса, созданный по эксклюзивному проекту.&hellip;</p>
           </article>
         </li>
       </ul>
@@ -316,8 +323,7 @@
 <div class="wrapper row5">
   <div id="copyright" class="hoc clear"> 
     <!-- ################################################################################################ -->
-    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
-    <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    <p class="fl_left">BaitHouse &copy; 2022 Cтроим Настоящее - <a href="#">Создаем Будущее</a></p>
     <!-- ################################################################################################ -->
   </div>
 </div>

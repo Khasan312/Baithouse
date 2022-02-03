@@ -16,3 +16,7 @@ def full_width(request):
 def basic_grid(request):
     return render(request, 'basic-grid.html')
 
+
+def about_us(request):
+    return render(request, 'about-us.html')
+
