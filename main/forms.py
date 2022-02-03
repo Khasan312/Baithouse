@@ -24,4 +24,4 @@ class UploadImageForm(forms.Form):
 class UpdateBuildForm(forms.ModelForm):
     class Meta:
         model = Build
-        fields = '__all__'
+        fields = "__all__"

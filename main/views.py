@@ -1,5 +1,5 @@
 from django.forms import modelformset_factory
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import *
 
@@ -51,22 +51,28 @@ def create_house(request):
 
 def update_build(request, pk):
     build = get_object_or_404(Build, pk=pk)
-    ImageFormSet = ImageForm(Image, )
+    image = get_object_or_404(Image, building=build)
+
+    ImageFormSet = ImageForm(
+        request.POST or None, request.FILES or None, instance=image
+    )
     build_form = BuildingForm(request.POST or None, instance=build)
 
     if build_form.is_valid() and ImageFormSet.is_valid():
-        build = build_form.save()
+        build_form.save()
+        ImageFormSet.save()
+        return redirect(build.get_absolute_url())
 
-        for form in ImageFormSet.cleaned_data:
-            image = form.save(commit=False)
-            image.building = build
-            image.save()
-        return redirect(Build.get_absolute_url())
-    return render(request, 'update_build.html', context={'Image_form': ImageFormSet,
-                                                         'Build_form': BuildingForm})
+    return render(
+        request,
+        "update_build.html",
+        context={"image_form": ImageFormSet, "build_form": build_form},
+    )
+
+
+def delete_build(request, pk):
+    pass
 
 
 def about_us(request):
-    return render(request, 'about-us.html')
-
-
+    return render(request, "about-us.html")

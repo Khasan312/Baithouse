@@ -4,9 +4,7 @@ from account.models import User
 
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(
-        min_length=8, required=True, widget=forms.PasswordInput
-    )
+    password = forms.CharField(min_length=8, required=True, widget=forms.PasswordInput)
     password_confirmation = forms.CharField(
         min_length=8, required=True, widget=forms.PasswordInput
     )
@@ -26,9 +24,7 @@ class RegistrationForm(forms.ModelForm):
     def clean_username(self):
         username = self.cleaned_data.get("username")
         if User.objects.filter(username=username).exists():
-            raise forms.ValidationError(
-                "user with given username already exists"
-            )
+            raise forms.ValidationError("user with given username already exists")
         return username
 
     def clean_email(self):

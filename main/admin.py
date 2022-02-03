@@ -17,3 +17,4 @@ class BuildsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category)
+admin.site.register(Image)

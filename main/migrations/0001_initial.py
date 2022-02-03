@@ -63,9 +63,7 @@ class Migration(migrations.Migration):
                 ("name", models.CharField(max_length=50)),
                 (
                     "image",
-                    models.ImageField(
-                        blank=True, null=True, upload_to="categories"
-                    ),
+                    models.ImageField(blank=True, null=True, upload_to="categories"),
                 ),
                 (
                     "parent",

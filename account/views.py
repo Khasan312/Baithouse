@@ -18,10 +18,9 @@ class RegisterView(SuccessMessageMixin, CreateView):
 
 class SignInView(LoginView):
     template_name = "account/login.html"
-    template_name = 'account/login.html'
+    template_name = "account/login.html"
 
 
 class ProfileView(DetailView):
     model = User
-    template_name = 'account/profile.html'
-
+    template_name = "account/profile.html"

@@ -1,9 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.utils import timezone
 
 from account.models import User
-
-from django.utils import timezone
 
 # User = get_user_model()
 
@@ -34,9 +33,7 @@ class Build(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="buildings"
     )
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="buildings"
-    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="buildings")
     created = models.DateTimeField(auto_created=True, default=timezone.now)
 
     def __str__(self):
@@ -50,6 +47,4 @@ class Build(models.Model):
 
 class Image(models.Model):
     image = models.ImageField(upload_to="buildings")
-    building = models.ForeignKey(
-        Build, on_delete=models.CASCADE, related_name="images"
-    )
+    building = models.ForeignKey(Build, on_delete=models.CASCADE, related_name="images")
