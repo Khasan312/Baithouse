@@ -1,5 +1,5 @@
 from django.forms import modelformset_factory
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 
 from .forms import *
 
@@ -9,7 +9,8 @@ def index(request):
 
 
 def gallery(request):
-    return render(request, "gallery.html")
+    obj = Build.objects.all()
+    return render(request, "gallery.html", locals())
 
 
 def full_width(request):
@@ -49,4 +50,23 @@ def create_house(request):
 
 
 def update_build(request, pk):
-    pass
+    build = get_object_or_404(Build, pk=pk)
+    ImageFormSet = ImageForm(Image, )
+    build_form = BuildingForm(request.POST or None, instance=build)
+
+    if build_form.is_valid() and ImageFormSet.is_valid():
+        build = build_form.save()
+
+        for form in ImageFormSet.cleaned_data:
+            image = form.save(commit=False)
+            image.building = build
+            image.save()
+        return redirect(Build.get_absolute_url())
+    return render(request, 'update_build.html', context={'Image_form': ImageFormSet,
+                                                         'Build_form': BuildingForm})
+
+
+def about_us(request):
+    return render(request, 'about-us.html')
+
+

@@ -50,7 +50,7 @@
           <li class="active"><a class="drop" href="#">Недвижимость</a>
             <ul>
               <li class="active"><a href="gallery.html">Квартиры</a></li>
-              <li><a href="full-width.html">Частные дома</a></li>
+              <li><a href="{% url 'full' %}">Частные дома</a></li>
               <li><a href="basic-grid.html">Basic Grid</a></li>
             </ul>
           </li>
@@ -85,18 +85,33 @@
     <!-- ################################################################################################ -->
     <div class="content"> 
       <!-- ################################################################################################ -->
+      {% for item in obj %}
+      {{ item.images.all.first.image.url }}
       <div id="gallery">
         <figure>
           <header class="heading">Gallery Title Goes Here</header>
-          <ul class="nospace clear">
-          {% for image in images %}
-            <li class="one_quarter first"><a href="#"><img src="{{ image.url }}" alt=""></a></li>
-          </ul>
-          {% endfor %}
+          <div>
+          <img src="{{ item.images.all.first.image.url }}" class="img-thumbnail" alt="...">
+            <a href="{% url 'update-house' item.id %}"><input class="btn btn-primary" type="reset" value="Update"></a>
+          </div>
           <figcaption>Квартиры</figcaption>
-
+<div id="mc-container"></div>
+<script type="text/javascript">
+cackle_widget = window.cackle_widget || [];
+cackle_widget.push({widget: 'Comment', id: 78705});
+(function() {
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cackle.me/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
+<a id="mc-link" href="http://cackle.me">Comments system <b style="color:#4FA3DA">Cackl</b><b style="color:#F65077">e</b></a>
         </figure>
       </div>
+      {% endfor %}
+
 
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->
