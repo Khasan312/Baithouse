@@ -21,16 +21,12 @@ def basic_grid(request):
 
 
 def create_house(request):
-    # ImageFormSet = modelformset_factory(Image, form=ImageForm, max_num=5)
-
     build_form = BuildingForm()
     image_form = UploadImageForm()
 
     if request.method == "POST":
         build_form = BuildingForm(request.POST)
         image_form = UploadImageForm(request.POST, request.FILES)
-
-        print(request.FILES)
 
         if build_form.is_valid() and image_form.is_valid():
             build = build_form.save()
