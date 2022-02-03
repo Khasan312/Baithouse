@@ -19,3 +19,9 @@ class ImageForm(forms.ModelForm):
 
 class UploadImageForm(forms.Form):
     image = forms.ImageField()
+
+
+class UpdateBuildForm(forms.ModelForm):
+    class Meta:
+        model = Build
+        fields = '__all__'

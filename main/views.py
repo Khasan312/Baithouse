@@ -1,5 +1,5 @@
 from django.forms import modelformset_factory
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 
 from .forms import *
 
@@ -53,9 +53,8 @@ def create_house(request):
     )
 
 
-def update_build(request, pk):
+def update_build(request):
     pass
-
 
 def about_us(request):
     return render(request, 'about-us.html')
