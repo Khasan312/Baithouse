@@ -92,7 +92,7 @@
           <header class="heading">Gallery Title Goes Here</header>
           <div>
           <img src="{{ item.images.all.first.image.url }}" class="img-thumbnail" alt="...">
-            <a href="{% url 'update-house' %}"><input class="btn btn-primary" type="reset" value="Update"></a>
+            <a href="{% url 'update-house' item.id %}"><input class="btn btn-primary" type="reset" value="Update"></a>
           </div>
           <figcaption>Квартиры</figcaption>
 <div id="mc-container"></div>
