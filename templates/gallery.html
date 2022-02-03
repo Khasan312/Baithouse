@@ -85,18 +85,19 @@
     <!-- ################################################################################################ -->
     <div class="content"> 
       <!-- ################################################################################################ -->
+      {% for item in obj %}
+      {{ item.images.all.first.image.url }}
       <div id="gallery">
         <figure>
           <header class="heading">Gallery Title Goes Here</header>
-          <ul class="nospace clear">
-          {% for image in images %}
-            <li class="one_quarter first"><a href="#"><img src="{{ image.url }}" alt=""></a></li>
-          </ul>
-          {% endfor %}
+          <div>
+          <img src="{{ item.images.all.first.image.url }}" class="img-thumbnail" alt="...">
+          </div>
           <figcaption>Квартиры</figcaption>
 
         </figure>
       </div>
+      {% endfor %}
 
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->

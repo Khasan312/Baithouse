@@ -9,7 +9,8 @@ def index(request):
 
 
 def gallery(request):
-    return render(request, "gallery.html")
+    obj = Build.objects.all()
+    return render(request, "gallery.html", locals())
 
 
 def full_width(request):

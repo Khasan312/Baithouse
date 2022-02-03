@@ -16,5 +16,6 @@ class ImageForm(forms.ModelForm):
         model = Image
         fields = ("image",)
 
+
 class UploadImageForm(forms.Form):
     image = forms.ImageField()
