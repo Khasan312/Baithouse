@@ -53,8 +53,22 @@ def create_house(request):
     )
 
 
-def update_build(request):
-    pass
+def update_build(request, pk):
+    build = get_object_or_404(Build, pk=pk)
+    ImageFormSet = ImageForm(Image, )
+    build_form = BuildingForm(request.POST or None, instance=build)
+
+    if build_form.is_valid() and ImageFormSet.is_valid():
+        build = build_form.save()
+
+        for form in ImageFormSet.cleaned_data:
+            image = form.save(commit=False)
+            image.building = build
+            image.save()
+        return redirect(Build.get_absolute_url())
+    return render(request, 'update_build.html', context={'Image_form': ImageFormSet,
+                                                         'Build_form': BuildingForm})
+
 
 def about_us(request):
     return render(request, 'about-us.html')
