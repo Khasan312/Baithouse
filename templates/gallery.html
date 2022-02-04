@@ -44,7 +44,13 @@
       <header id="header" class="hoc clear">
         <!-- ################################################################################################ -->
         <div id="logo" class="fl_left">
-          <h1><a href="{% url 'home' %}">BaitHouse</a></h1>
+        <h1><b><a bolt="" style="font-size:35px;" href="{% url 'home' %}">BaitHouse</a></b></h1>
+
+           <form class="d-flex" method="get"  action="{% url 'gallery' %}">
+               <input class="form-control me-2" name="q"  type="search" placeholder="Search Venues"  aria-label="Search">
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
+           </form>
+
         </div>
         <nav id="mainav" class="fl_right">
           <ul class="clear">
@@ -87,7 +93,7 @@
       <!-- ################################################################################################ -->
       <div class="content">
         <!-- ################################################################################################ -->
-        {% for item in obj %}
+        {% for item in builds %}
         <div id="gallery">
           <figure>
             <header class="heading">{{ item.title }}</header>
@@ -118,8 +124,7 @@
                 s.parentNode.insertBefore(mc, s.nextSibling);
               })();
             </script>
-            <a id="mc-link" href="http://cackle.me">Comments system <b style="color:#4FA3DA">Cackl</b><b
-                style="color:#F65077">e</b></a>
+            <a id="mc-link" href="http://cackle.me">Comments system <b style="color:#4FA3DA">Cackl</b><b style="color:#F65077">e</b></a>
           </figure>
         </div>
         {% endfor %}

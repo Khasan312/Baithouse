@@ -37,6 +37,17 @@
     </header>
   </div>
 
+  {% if searched %}
+        <h1>you searched For {{ searched }}</h1>
+  <br/>
+  {% for venue in venues %}
+  <a href="{% url 'gallery' %}">{{ venue }} </a><br/>
+  {% endfor %}
+  {% else %}
+  <h1>Hey! u forgot to search for a Venue...</h1>
+  {% endif %}
+
+</center>
 
 
 

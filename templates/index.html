@@ -11,6 +11,7 @@
 <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
 
 
+
 <body id="top">
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -50,8 +51,7 @@
         <h1><b><a bolt="" style="font-size:35px;" href="{% url 'home' %}">BaitHouse</a></b></h1>
 </div>
 
-        <input name="q" class="form-control  class-right"   type="search" placeholder="Burada ara" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+
 
          </div>
 
@@ -74,6 +74,7 @@
         </ul>
       </nav>
 
+
       <!-- ################################################################################################ -->
     </header>
   </div>
@@ -82,9 +83,10 @@
   <!-- ################################################################################################ -->
  <!-- ################################################################################################ -->
   <div id="pageintro" class="hoc clear">
+            <img  style="width: 620px; height: 200;" src="{% static 'images/new.jpg' %}">
 
 
-   <img class="bgded overlay"  style="background-image"  src="{% static 'images/new.jpg' %}">
+
     <article class="introtxt">
       <p>Дом для счастливых семей</p>
       <h2 class="heading">ЭЛ КЛАССИК ПЛЮС</h2>
@@ -106,20 +108,22 @@
     <!-- ################################################################################################ -->
     <div class="group center">
       <article class="one_quarter first"><i class="icon fa fa-repeat"></i>
-        <h4 class="font-x1"><a href="#">Posuere turpis</a></h4>
-        <p>Pharetra erat vitae aliquam cras vitae feugiat quam mauris eget dolor eleifend interdum nam eleifend augue nec.</p>
+        <h4 class="font-x1"><a href="#">БОЛЕЕ 150 ОБЪЕКТОВ</a></h4>
+        <p>Завершим строительство, решим все вопросы с гос.органами и введем
+здание в эксплуатацию
+со всеми процедурами.</p>
       </article>
       <article class="one_quarter"><i class="icon fa fa-bar-chart"></i>
         <h4 class="font-x1"><a href="#">15 лет на рынке</a></h4>
-        <p>Aliquet magna odio placerat vitae urna vitae aliquam aliquet lectus donec suscipit leo vitae ante viverra iaculis.</p>
+        <p> В 2003 году был подписан контракт с крупнейшим итальянским концерном CANNON на поставку технологического промышленного оборудования, и уже через год был запущен завод по выпуску пенополиуретановых сэндвич-панелей. </p>
       </article>
       <article class="one_quarter"><i class="icon fa fa-bitbucket"></i>
         <h4 class="font-x1"><a href="#">Выбор года 2022</a></h4>
-        <p>Ultrices nibh quis mi ultrices eget varius elit sodales proin sed tincidunt ante sed posuere ex eget justo luctus.</p>
+        <p> мы предлагаем на Кыргызстанском рынке современные строительные материалы, соответствующие международным стандартам качества.</p>
       </article>
       <article class="one_quarter"><i class="icon fa fa-hashtag"></i>
-        <h4 class="font-x1"><a href="#">Faucibus finibus</a></h4>
-        <p>Aliquam erat volutpat class aptent taciti sociosqu ad litora torquent per conubia nostra per inceptos himenaeos.</p>
+        <h4 class="font-x1"><a href="#">Надежность</a></h4>
+        <p>Все квартиры были сданы с ремонтом и реализованы в рассрочку по себестоимости, а также с помощью наших друзей были подарены две 1-комнатные квартиры «под ключ».</p>
       </article>
     </div>
     <!-- ################################################################################################ -->
@@ -198,7 +202,7 @@
   <article class="hoc container clear center">
     <!-- ################################################################################################ -->
     <h6 class="heading capitalise">Эль Классик Плюс </h6>
-    <p class="nospace"><a class="btn inverse" href="#">Подробнее</a></p>
+    <p class="nospace"><a class="btn inverse" href="{% url 'about-us' %}">Подробнее</a></p>
     <!-- ################################################################################################ -->
   </article>
 </div>
@@ -228,23 +232,23 @@
       <h3 style="font-size: 35px;" class="font-x2 nospace">Будущие проекты</h3>
     </div>
     <div class="group">
-      <article class="one_third first"><a href="#"><img class="btmspace-30" src="{% static 'images/avan.jpg' %}" alt=""></a>
+      <article class="one_third first"><img class="btmspace-30" src="{% static 'images/avan.jpg' %}" alt=""></a>
         <time class="block font-xs" datetime="2045-04-06">6<sup>th</sup> Апрель 2045</time>
         <h4 class="nospace font-x1">BaitHouse City</h4>
         <p>BaitHouse CITY – проект c оригинальной и выразительной архитектурой. Комплекс представляет собой ансамбль из 10 домов единого архитектурного стиля этажностью от 10 до 14 этажей&hellip;</p>
-        <p class="nospace"><a href="#">Read More &raquo;</a></p>
+        <p class="nospace"><a href="{% url 'bait-house-city' %}">Read More &raquo;</a></p>
       </article>
-      <article class="one_third"><a href="#"><img class="btmspace-30" src="{% static 'images/elitka.jpg' %}" alt=""></a>
+      <article class="one_third"><img class="btmspace-30" src="{% static 'images/elitka.jpg' %}" alt=""></a>
         <time class="block font-xs" datetime="2045-04-05">5<sup>th</sup> Апрель 2045</time>
         <h4 class="nospace font-x1">Испанский Дом</h4>
         <p> «Испанский дом» — великолепный дом премиум класса, созданный по эксклюзивному проекту. Утонченная испанская архитектура, отличное расположение в престижном районе Бишкека – 7 микрорайоне&hellip;</p>
-        <p class="nospace"><a href="#">Read More &raquo;</a></p>
+        <p class="nospace"><a href="{% url 'spanish-house' %}">Read More &raquo;</a></p>
       </article>
-      <article class="one_third"><a href="#"><img class="btmspace-30" src="{% static 'images/komp.jpg' %}" alt=""></a>
+      <article class="one_third"><img class="btmspace-30" src="{% static 'images/komp.jpg' %}" alt=""></a>
         <time class="block font-xs" datetime="2045-04-04">4<sup>th</sup> April 2045</time>
         <h4 class="nospace font-x1">Французский Квартал</h4>
         <p>«Французский квартал» расположен в самом сердце южной части нашего города. Этот экологически чистый и тихий район создает прекрасную среду для проживания, рядом с которым расположен парк «Асанбай», гостиница «Jannat» и Гипермаркет «Глобус».&hellip;</p>
-        <p class="nospace"><a href="#">Read More &raquo;</a></p>
+        <p class="nospace"><a href="{% url 'french-kvartal' %}">Read More &raquo;</a></p>
       </article>
     </div>
     <!-- ################################################################################################ -->
@@ -279,7 +283,7 @@
       <ul class="nospace linklist">
         <li><a href="#">Французский квартал</a></li>
         <li><a href="#">Испанский квартал</a></li>
-        <li><a href="#">BaitHouse City</a></li>
+        <li><a href="{% url 'bait-house-city' %}">BaitHouse City</a></li>
         <li><a href="#">Александрия</a></li>
         <li><a href="#">Эль Классик Плюс</a></li>
       </ul>
@@ -289,7 +293,7 @@
       <ul class="nospace linklist">
         <li>
           <article>
-            <h6 class="nospace font-x1"><a href="#">BaitHouse City</a></h6>
+            <h6 class="nospace font-x1"><a href="{% url 'bait-house-city' %}">BaitHouse City</a></h6>
             <time class="font-xs block btmspace-10" datetime="2045-04-06">Пятница, 6<sup>th</sup> Апрель 2045</time>
             <p class="nospace">BaitHouse CITY – проект c оригинальной и выразительной архитектурой. &hellip;</p>
           </article>

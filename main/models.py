@@ -4,7 +4,6 @@ from django.utils import timezone
 
 from account.models import User
 
-# User = get_user_model()
 
 
 class Category(models.Model):
