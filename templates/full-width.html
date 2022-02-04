@@ -12,10 +12,10 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- Top Background Image Wrapper -->
-<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');"> 
+<div class="bgded overlay" style="background-image:url('../images/demo/backgrounds/01.png');">
   <!-- ################################################################################################ -->
   <div class="wrapper row0">
-    <div id="topbar" class="hoc clear"> 
+    <div id="topbar" class="hoc clear">
       <!-- ################################################################################################ -->
       <div class="fl_left">
         <ul class="nospace">
@@ -39,7 +39,7 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <div class="wrapper row1">
-    <header id="header" class="hoc clear"> 
+    <header id="header" class="hoc clear">
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
         <h1><a href="{% url 'home' %}">BaitHouse</a></h1>
@@ -56,22 +56,7 @@
               <li><a href="basic-grid.html">Basic Grid</a></li>
             </ul>
           </li>
-          <li><a class="drop" href="#">Dropdown</a>
-            <ul>
-              <li><a href="#">Level 2</a></li>
-              <li><a class="drop" href="#">Level 2 + Drop</a>
-                <ul>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                  <li><a href="#">Level 3</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Level 2</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Link Text</a></li>
-          <li><a href="#">Link Text</a></li>
-        </ul>
+          <li><a class="drop" href="{% url 'create-house' %}">Create</a>
       </nav>
       <!-- ################################################################################################ -->
     </header>
@@ -80,7 +65,7 @@
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <div class="wrapper row2">
-    <div id="breadcrumb" class="hoc clear"> 
+    <div id="breadcrumb" class="hoc clear">
       <!-- ################################################################################################ -->
       <ul>
         <li><a href="#">Home</a></li>
@@ -98,14 +83,27 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
-  <main class="hoc container clear"> 
+  <main class="hoc container clear">
     <!-- main body -->
     <!-- ################################################################################################ -->
-    <div class="content"> 
+    <div class="content">
       <!-- ################################################################################################ -->
 
-  <li class="one_quarter first"><a href="#"><img src="{% static 'images/321.png' %}" alt=""></a></li>
-          </ul>
+ {% for item in obj %}
+        <div id="gallery">
+          <figure>
+            <header class="heading">{{ item.title }}</header>
+            <div>
+              <img src="{{ item.images.all.first.image.url }}" class="img-thumbnail" alt="...">
+              <a href="{% url 'update-house' item.id %}"><input class="btn btn-primary" type="reset" value="Update"></a>
+              <a href="{% url 'delete-house' item.id %}"><input class="btn btn-primary" type="reset" value="Delete"></a>
+            </div>
+
+            <p>Description: {{ item.description}}</p>
+            <h3>Price: {{ item.price }} $</h3>
+            <h3>Category: {{ item.category }}</h3>
+            <h3>Customer: {{ item.user }}</h3>
+
             <figcaption>Частные дома</figcaption>
 
         <h2>Write A Comment</h2>
@@ -139,7 +137,7 @@ cackle_widget.push({widget: 'Comment', id: 78704});
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row4">
-  <footer id="footer" class="hoc clear"> 
+  <footer id="footer" class="hoc clear">
     <!-- ################################################################################################ -->
     <div class="one_quarter first">
       <h6 class="title">Tortor vestibulum</h6>
@@ -196,7 +194,7 @@ cackle_widget.push({widget: 'Comment', id: 78704});
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
+  <div id="copyright" class="hoc clear">
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
     <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>

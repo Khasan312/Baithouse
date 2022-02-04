@@ -56,7 +56,7 @@
                 <li><a href="basic-grid.html">Basic Grid</a></li>
               </ul>
             </li>
-            <li><a class="drop" href="#">Dropdown</a></li>
+            <li><a class="drop" href="{% url 'create-house' %}">Create</a></li>
 
       </header>
     </div>
@@ -85,6 +85,7 @@
     <main class="hoc container clear">
       <!-- main body -->
       <!-- ################################################################################################ -->
+
       <div class="content">
         <!-- ################################################################################################ -->
         {% for item in obj %}
@@ -94,6 +95,7 @@
             <div>
               <img src="{{ item.images.all.first.image.url }}" class="img-thumbnail" alt="...">
               <a href="{% url 'update-house' item.id %}"><input class="btn btn-primary" type="reset" value="Update"></a>
+              <a href="{% url 'delete-house' item.id %}"><input class="btn btn-primary" type="reset" value="Delete"></a>
             </div>
 
             <p>Description: {{ item.description}}</p>
@@ -127,22 +129,30 @@
 
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
-        <nav class="pagination">
-          <ul>
-            <li><a href="#">&laquo; Previous</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><strong>&hellip;</strong></li>
-            <li><a href="#">6</a></li>
-            <li class="current"><strong>7</strong></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-            <li><strong>&hellip;</strong></li>
-            <li><a href="#">14</a></li>
-            <li><a href="#">15</a></li>
-            <li><a href="#">Next &raquo;</a></li>
-          </ul>
-        </nav>
+        {% for contact in page_obj %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br>
+    ...
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
         <!-- ################################################################################################ -->
       </div>
       <!-- ################################################################################################ -->

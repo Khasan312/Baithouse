@@ -1,5 +1,8 @@
+from django.contrib.messages.storage import session
+from django.core.paginator import Paginator
 from django.forms import modelformset_factory
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import ListView
 
 from .forms import *
 
@@ -8,13 +11,23 @@ def index(request):
     return render(request, "index.html")
 
 
-def gallery(request):
-    obj = Build.objects.all()
-    return render(request, "gallery.html", locals())
+#def gallery(request):
+    #obj = Build.objects.all()
+   # paginator = Paginator(obj, 2)  # Show 25 contacts per page.
+   # page_number = request.GET.get('page')
+    #page_obj = paginator.get_page(page_number)
+    #return render(request, "gallery.html", locals())
+
+class BuiltListView(ListView):
+    paginate_by = 1
+    model = Build
+    template_name = 'gallery.html'
+    context_object_name = 'obj'
 
 
 def full_width(request):
-    return render(request, "full-width.html")
+    obj = Build.objects.all()
+    return render(request, "full-width.html", locals())
 
 
 def basic_grid(request):
@@ -71,8 +84,18 @@ def update_build(request, pk):
 
 
 def delete_build(request, pk):
-    pass
+    product = get_object_or_404(Build, pk=pk)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('gallery')
+    return render(request, 'delete_build.html', locals())
 
 
 def about_us(request):
     return render(request, "about-us.html")
+
+
+
+
+
+
