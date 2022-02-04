@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import ListView
 
 from .forms import *
+from .models import Category
 
 
 def index(request):
@@ -95,7 +96,33 @@ def about_us(request):
     return render(request, "about-us.html")
 
 
+def bait_house(request):
+    return render(request, 'baithouse-city.html')
 
+
+def search_venues(request):
+    if request.method == 'POST':
+        searched = request.GET.get['q']
+        venues = Category.objects.filter(name__contains=searched)
+
+        return render(request, 'search_venues.html',{'searched': searched, 'venues': venues})
+    else:
+        return render(request, 'search_venues.html',{})
+
+
+def spanish_house(request):
+    return render(request, 'spanish-house.html')
+
+
+def french_kvartal(request):
+    return render(request, 'french.html')
+
+
+class GalleryListView(ListView):
+    # model = Build
+    template_name = 'gallery.html'
+    context_object_name = 'builds'
+    paginate_by = 4
 
 
 
